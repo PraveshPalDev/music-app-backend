@@ -1,4 +1,4 @@
-# 🎵 Music App Backend (Node.js + Express)
+# (Node.js + Express) Backend Template
 
 This is the backend service for the Music App built with **Node.js**, **Express**, and **ES Modules**. It provides a RESTful API structure, with clean project architecture, proper error and success handling, and environment-based configuration.
 
@@ -65,7 +65,7 @@ cd src/nodemon.server.js
 
 http://localhost:8000/api
 
-### 5. ✅ Response Format
+### 6. ✅ Response Format
 
 {
 "statusCode": 200,
@@ -74,7 +74,7 @@ http://localhost:8000/api
 "success": true
 }
 
-### 5. ✅ Error Format
+### 7. ✅ Error Format
 
 {
 "statusCode": 404,
@@ -84,10 +84,10 @@ http://localhost:8000/api
 "data": null
 }
 
-### 5. ✅ ✨ Author
+### 8. ✅ ✨ Author
 
 Pravesh Kumar Pal
 
-### 6. ✅ ✨ This project is licensed under the MIT License.
+### 9. ✅ ✨ This project is licensed under the MIT License.
 
 Let me know if you'd like to include DB setup, JWT authentication, or Swagger API docs too.
