@@ -1,10 +1,9 @@
-// src/routes/index.js
-import {Router} from 'express';
-import userRoutes from './user.routes.js';
+import express from "express";
+import userRoutes from "./user.routes.js";
 
-const router = Router();
+const router = express.Router();
 
-// Combine routes
-router.use('/users', userRoutes); // http://localhost:3000/api/v1/users
+// All routes go here
+router.use("/users", userRoutes);
 
 export default router;
