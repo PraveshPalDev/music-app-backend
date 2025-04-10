@@ -6,8 +6,10 @@ import helmet from "helmet";
 import routes from "./routes/index.js";
 import successHandler from "./middlewares/success.middleware.js";
 import errorHandler from "./middlewares/error.middleware.js";
+import connectDB from "./config/database.js";
 
 const app = express();
+connectDB();
 
 // Middlewares
 app.use(helmet());
