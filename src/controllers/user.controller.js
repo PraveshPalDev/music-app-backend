@@ -141,3 +141,27 @@ export const updateUserByID = async (req, res, next) => {
     next(error);
   }
 };
+
+export const deleteUserByID = async (req, res, next) => {
+  try {
+    const { userId } = req.query;
+    if (!userId) {
+      throw new ApiError(400, "userId is required!");
+    }
+
+    const user = await User.findByIdAndUpdate(
+      userId,
+      {
+        isActiveUser: false,
+      },
+      { new: true }
+    );
+    if (!user) {
+      throw new ApiError(404, "User not found");
+    }
+
+    res.sendSuccess(user, "User delete successfully", 200);
+  } catch (error) {
+    next(error);
+  }
+};

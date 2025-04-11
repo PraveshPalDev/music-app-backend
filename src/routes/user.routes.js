@@ -5,6 +5,7 @@ import {
   loginUser,
   getUsersByID,
   updateUserByID,
+  deleteUserByID,
 } from "../controllers/user.controller.js";
 import verifyToken from "../utils/jwtTokenGenerateHandler.js";
 
@@ -17,5 +18,6 @@ router.post("/loginUser", loginUser);
 router.get("/", verifyToken, getAllUsers);
 router.get("/getUserId", verifyToken, getUsersByID);
 router.put("/updateUserById", verifyToken, updateUserByID);
+router.delete("/deleteUserById", verifyToken, deleteUserByID);
 
 export default router;
