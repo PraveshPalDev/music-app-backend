@@ -1,5 +1,6 @@
 import User from "../models/user.model.js";
 import { ApiError } from "../utils/apiErrorHandler.js";
+import { generateWebToken } from "../utils/jwtTokenGenerateHandler.js";
 import {
   loginValidation,
   registerValidation,
@@ -96,7 +97,15 @@ export const loginUser = async (req, res, next) => {
 
     const userResponse = existingUser.toObject();
     delete userResponse.password;
-    res.sendSuccess(userResponse, "User logged in successfully", 200);
+
+    const token = await generateWebToken(email, existingUser._id);
+
+    const updateUserResponse = {
+      ...userResponse,
+      token,
+    };
+
+    res.sendSuccess(updateUserResponse, "User logged in successfully", 200);
   } catch (error) {
     next(error);
   }
