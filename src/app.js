@@ -9,7 +9,6 @@ import errorHandler from "./middlewares/error.middleware.js";
 import connectDB from "./config/database.js";
 
 const app = express();
-connectDB();
 
 // Middlewares
 app.use(helmet());
@@ -19,6 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(successHandler);
 
+connectDB();
 // Routes
 app.get("/api", (req, res) => {
   res.send("🚀 get request received. Server is running...");
