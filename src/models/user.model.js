@@ -2,7 +2,12 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
-    name: {
+    firstName: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    lastName: {
       type: String,
       required: true,
       trim: true,
@@ -12,11 +17,22 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true,
       lowercase: true,
+      trim: true,
     },
     password: {
       type: String,
       required: true,
       minlength: 6,
+    },
+    gender: {
+      type: String,
+      required: true,
+      enum: ["male", "female", "other"],
+    },
+    profileImage: {
+      type: String,
+      required: true,
+      trim: true,
     },
   },
   {
@@ -24,6 +40,6 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("users", userSchema);
 
 export default User;
