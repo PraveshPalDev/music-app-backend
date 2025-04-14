@@ -144,7 +144,7 @@ export const updateUserByID = async (req, res, next) => {
 
 export const deleteUserByID = async (req, res, next) => {
   try {
-    const { userId } = req.query;
+    const { userId, isDeleted } = req.query;
     if (!userId) {
       throw new ApiError(400, "userId is required!");
     }
@@ -152,7 +152,7 @@ export const deleteUserByID = async (req, res, next) => {
     const user = await User.findByIdAndUpdate(
       userId,
       {
-        isActiveUser: false,
+        isActiveUser: isDeleted,
       },
       { new: true }
     );
